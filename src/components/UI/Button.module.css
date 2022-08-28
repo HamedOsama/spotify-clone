@@ -35,3 +35,8 @@
   border-radius: 50%;
   background-color: #1ed760;
 }
+
+.play__btn:hover {
+  transition: none;
+  transform: scale(1.1);
+}

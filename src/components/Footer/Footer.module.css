@@ -15,6 +15,22 @@
 
 .footer__left {
   flex: 0.3;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.footer__left img {
+  width: 3.5rem;
+  object-fit: contain;
+}
+
+.footer__left .song__info .song__name {
+  color: #ffffff;
+}
+
+.footer__left .song__info .song__artist {
+  font-size: 0.8rem;
 }
 
 .footer__middle {
@@ -34,11 +50,24 @@
 }
 
 .footer__right {
-  flex: 0.3;
+  /* flex: 0.3;
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  margin: 0 0 0 0.5rem;
+  margin: 0 0 0 0.5rem; */
+
+  flex: 0.3 1;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: flex-end;
+  padding: 0 1rem 0 0;
+
+}
+
+.slider {
+  width: 100px !important;
+  display: block;
 }
 
 .icon {

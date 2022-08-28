@@ -16,12 +16,16 @@ function Footer() {
   return (
     <div className={style.footer}>
       <div className={style.footer__left}>
-        <p>Album and song details</p>
+        <img src="https://i.scdn.co/image/ab67616d000048518c6827be90fa77b00e8d8570" alt="" />
+        <div className={style.song__info}>
+          <h5 className={style.song__name}>Brrr Brrr Brrr</h5>
+          <p className={style.song__artist}>Pablo</p>
+        </div>
       </div>
       <div className={style.footer__middle}>
         <Button className="green"><ShuffleIcon className={`${style.icon} ${style.control__icon}`} /></Button>
         <Button><SkipPreviousIcon className={`${style.icon} ${style.control__icon}`} /></Button>
-        <Button><PlayCircleOutlineIcon fontSize='large' className={`${style.icon} ${style.control__icon}`} /></Button>
+        <Button className="play__btn"><PlayCircleOutlineIcon fontSize='large' className={`${style.icon} ${style.control__icon}`} /></Button>
         <Button><SkipNextIcon className={`${style.icon} ${style.control__icon}`} /></Button>
         <Button className="green"><RepeatIcon className={`${style.icon} ${style.control__icon}`} /></Button>
       </div>
@@ -29,7 +33,7 @@ function Footer() {
         <Button><LyricsIcon className={`${style.icon}`} /></Button>
         <Button><PlaylistPlayIcon className={`${style.icon}`} /></Button>
         <Button ><VolumeDownIcon className={`${style.icon}`} /></Button>
-        <Slider className={`${style.icon}`} />
+        <Slider className={`${style.icon} ${style.slider}`} />
         {/* <PlaylistPlayIcon /> */}
 
       </div>
