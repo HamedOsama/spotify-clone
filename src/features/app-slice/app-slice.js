@@ -4,7 +4,7 @@ const initialState = {
   user: null,
   playlists: [],
   playing: false,
-  token: "BQDsOq0eDqRQXciwgsPEpGbJYHgPEFBCvh3p0DDm2EMbIp_wKZ7FZFXdzG6Vtu8IKPF5A37WAoeQ6u2I3gH8yLhQp2EdSJUx0V2yV1pODTXf_hPv5uBzrtRN2_xrMgebVmCt2FdFLUklr9FjI-M4y0QSk1GdthcCUG5DUypP8uSqnt1uAGF8AJpMmWvTvHJx1W3GjvVh2GDYZnzC8JaL",
+  token: 'BQBQbD5pZ3_t6CWq7LmlhoVsFr_Ujxnn-oOf73oQnE-isvh8MCVbVF8zSwjbECouJ0nE8wD0QLFKiNxAslpt1scjZiJfq8CbNTYOpTBZmlwLm8GDqwJwj9_3GxI_35xmnBHDOXmD6bPG07x4kKYJfl5QsnC_C9iJgan7lG24a3Wu7r_iXGf1_tGo8EcAPQOzDeI9gCMfbFA2CtHJ',
   item: null
 }
 
@@ -17,6 +17,9 @@ const appSlice = createSlice({
     },
     setToken: (state, action) => {
       state.token = action.payload;
+    },
+    setPlaylist: (state, action) => {
+      state.playlists = action.payload
     }
   }
 })

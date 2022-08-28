@@ -1,0 +1,25 @@
+.sidebarOption {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: #b3b3b3;
+  height: 2rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.3s color ease-in;
+  padding: 0 1.5rem;
+  margin: 0.5rem 0;
+}
+
+.sidebarOption:hover,
+.sidebarOption:focus {
+  color: #ffffff;
+}
+
+.playlist__item {
+  font-size: 0.9rem;
+}
+
+.sidebarOption .sidebarOption__icon {
+  width: 1.75rem;
+}

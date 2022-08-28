@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import spotifyWebApi from 'spotify-web-api-js'
 
 import Login from './components/Login/Login';
-import Player from './components/Player/Player';
+import Main from './components/Main/Main';
 // import { getTokenFromUrl } from './spotify/spotify';
 import { appActions } from './features/app-slice/app-slice';
 
@@ -20,20 +20,23 @@ function App() {
     if (token) {
       // setToken(_token)
       spotify.setAccessToken(token)
-      dispatch(appActions.setToken(token))
+      // dispatch(appActions.setToken(token))
       spotify.getMe().then(user => {
         console.log(user)
         dispatch(appActions.setUser(user))
       })
+      spotify.getUserPlaylists().then(data => {
+        dispatch(appActions.setPlaylist(data))
+      })
     }
-    // window.location.hash = ''
+    window.location.hash = ''
     // console.log('I have token');
-    // console.log(token)
+    console.log(token)
   }, [dispatch, token])
   return (
     <div className="App">
       {!token && <Login />}
-      {token && <Player spotify={spotify} />}
+      {token && <Main spotify={spotify} />}
       {/*Spotify logo*/}
       {/*Spotify logo*/}
     </div>

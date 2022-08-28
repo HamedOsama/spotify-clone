@@ -1,0 +1,46 @@
+.sidebar {
+  border: 1px solid #000;
+  min-width: 230px;
+  height: 100vh;
+  /* padding: 0 0.5rem; */
+  color: #ffffff;
+  background-color: #040404;
+  flex: 0.2;
+}
+
+.sidebar .sidebar__logo {
+  margin: 1rem 0 0;
+  padding: 1rem;
+  /* display: flex; */
+  /* justify-content: center; */
+  /* align-items: center; */
+}
+
+.sidebar svg {
+  height: 40px;
+  width: 150px;
+  /* height: 70px; */
+  /* width: 90%; */
+  /* width: 100px; */
+}
+
+.playlist {
+  margin: 2rem 0 0;
+
+}
+
+.playlist .playlist__title {
+  display: block;
+  position: relative;
+  padding: 0 1.5rem;
+}
+
+.playlist .playlist__title::after {
+  content: "";
+  width: 80%;
+  height: 1.25px;
+  background-color: #282828;
+  position: absolute;
+  bottom: -0.5rem;
+  left: 10%;
+}
