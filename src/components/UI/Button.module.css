@@ -1,0 +1,37 @@
+.btn {
+  outline: none;
+  border: none;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* width: max-content; */
+}
+
+.btn:hover,
+.btn:focus {
+  color: #ffffff;
+}
+
+.btn__green:hover,
+.btn__green:focus {
+  color: #1ed760;
+}
+
+.btn__green {
+  position: relative;
+}
+
+.btn__green:focus:after {
+  content: "";
+  position: absolute;
+  bottom: -0.5rem;
+  left: 45%;
+  width: 0.25rem;
+  height: 0.25rem;
+  border-radius: 50%;
+  background-color: #1ed760;
+}
