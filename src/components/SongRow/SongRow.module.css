@@ -1,0 +1,28 @@
+.songRow {
+  display: flex;
+  align-items: center;
+  /* justify-content: space-between; */
+  gap: 1rem;
+  color: #ffffff;
+  cursor: pointer;
+  transition: .3s ease-in-out;
+}
+
+.songRow:hover {
+  opacity: 0.8;
+  background-color: #000;
+}
+
+.songRow .song__cover {
+  width: 50px;
+}
+
+.songRow .songRow__info .song__name {
+  font-size: 1rem;
+}
+
+.songRow .songRow__info .song__description {
+  font-size: 0.9rem;
+  color: hsla(0, 0%, 100%, .7);
+  margin: 0.25rem 0 0 0;
+}

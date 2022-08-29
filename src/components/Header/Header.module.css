@@ -1,0 +1,39 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
+.header__left {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  padding: 0.5rem;
+  border-radius: 3rem;
+}
+
+.header__left input {
+  border: none;
+  width: 100%;
+  min-width: 180px;
+  height: 100%;
+  outline: none;
+  padding: 0 0 0 0.5rem;
+}
+
+.header__left .search__icon {
+  cursor: pointer;
+}
+
+.header__right {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.header__right .user__name {
+  color: #ffffff;
+}

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import spotifyWebApi from 'spotify-web-api-js'
-import Footer from './components/Footer/Footer';
 
 import Login from './components/Login/Login';
 import Main from './components/Main/Main';
@@ -29,8 +28,11 @@ function App() {
       spotify.getUserPlaylists().then(data => {
         dispatch(appActions.setPlaylist(data))
       })
+      spotify.getPlaylist('37i9dQZF1DX5cO1uP1XC1g').then(data => {
+        dispatch(appActions.setDiscoverWeekly(data));
+      })
     }
-    window.location.hash = ''
+    // window.location.hash = ''
     // console.log('I have token');
     console.log(token)
   }, [dispatch, token])
@@ -40,7 +42,6 @@ function App() {
       {token && <Main spotify={spotify} />}
       {/*Spotify logo*/}
       {/*Spotify logo*/}
-      <Footer />
     </div>
   );
 }
