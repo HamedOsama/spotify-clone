@@ -1,7 +1,7 @@
 export const authEndpoint =
   'https://accounts.spotify.com/authorize';
 
-const redirectUrl = 'http://localhost:3000';
+const redirectUrl = 'https://spotify-clone-tau-one.vercel.app/';
 const clientId = '516b57c12fa4487da6fcd4e46ab1b88f';
 
 const scopes = [
