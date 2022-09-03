@@ -1,4 +1,6 @@
-import React from 'react'
+import React, { Fragment, useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import { appActions } from '../../features/app-slice/app-slice';
 
 import style from './Footer.module.css'
 import Button from '../UI/Button';
@@ -12,20 +14,47 @@ import LyricsIcon from '@mui/icons-material/Lyrics';
 import PauseCircleOutlineIcon from "@mui/icons-material/PauseCircleOutline";
 import PlaylistPlayIcon from "@mui/icons-material/PlaylistPlay";
 import { Slider } from '@mui/material'
+
+import { getMyCurrentPlaying, playPauseHandler, setVolume } from '../../features/app-slice/app-slice';
 function Footer() {
+  const dispatch = useDispatch();
+  const { playing, currentPlaying, volume } = useSelector(state => state.app)
+
+  useEffect(() => {
+    dispatch(getMyCurrentPlaying());
+  }, [dispatch, playing, currentPlaying])
+
+  useEffect(() => {
+    const event = setTimeout(() => {
+      dispatch(setVolume(volume))
+    }, 500);
+    return () => {
+      if (event)
+        clearTimeout(event)
+    }
+  }, [dispatch, volume])
+
+  const onPlayPauseHandler = () => {
+    dispatch(playPauseHandler());
+  }
   return (
     <div className={style.footer}>
       <div className={style.footer__left}>
-        <img src="https://i.scdn.co/image/ab67616d000048518c6827be90fa77b00e8d8570" alt="" />
-        <div className={style.song__info}>
-          <h5 className={style.song__name}>Brrr Brrr Brrr</h5>
-          <p className={style.song__artist}>Pablo</p>
-        </div>
+        {currentPlaying &&
+          <Fragment>
+            <img src={currentPlaying?.album?.images[0]?.url} alt="" />
+            <div className={style.song__info}>
+              <h5 className={style.song__name}>{currentPlaying?.name}</h5>
+              <p className={style.song__artist}>{currentPlaying?.artists?.map(el => el.name).join(', ')}</p>
+            </div>
+          </Fragment>
+        }
       </div>
       <div className={style.footer__middle}>
         <Button className="green"><ShuffleIcon className={`${style.icon} ${style.control__icon}`} /></Button>
         <Button><SkipPreviousIcon className={`${style.icon} ${style.control__icon}`} /></Button>
-        <Button className="play__btn"><PlayCircleOutlineIcon fontSize='large' className={`${style.icon} ${style.control__icon}`} /></Button>
+        {!playing && <Button className="play__btn"><PlayCircleOutlineIcon fontSize='large' className={`${style.icon} ${style.control__icon}`} onClick={onPlayPauseHandler} /></Button>}
+        {playing && <Button className="play__btn"><PauseCircleOutlineIcon fontSize='large' className={`${style.icon} ${style.control__icon}`} onClick={onPlayPauseHandler} /></Button>}
         <Button><SkipNextIcon className={`${style.icon} ${style.control__icon}`} /></Button>
         <Button className="green"><RepeatIcon className={`${style.icon} ${style.control__icon}`} /></Button>
       </div>
@@ -33,7 +62,7 @@ function Footer() {
         <Button><LyricsIcon className={`${style.icon}`} /></Button>
         <Button><PlaylistPlayIcon className={`${style.icon}`} /></Button>
         <Button ><VolumeDownIcon className={`${style.icon}`} /></Button>
-        <Slider className={`${style.icon} ${style.slider}`} />
+        <Slider className={`${style.icon} ${style.slider}`} defaultValue={50} min={0} max={100} onChange={e => dispatch(appActions.setVolume(e.target.value))} />
         {/* <PlaylistPlayIcon /> */}
 
       </div>

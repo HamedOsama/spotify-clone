@@ -1,13 +1,35 @@
 import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { playSong } from '../../features/app-slice/app-slice';
 import { millsToMinutesAndSeconds } from '../../lib/time'
 
 import style from './SongRow.module.css'
-function SongRow({ order, track }) {
-  // console.log(track.album)
+function SongRow({ order, track, allTracks }) {
+  const dispatch = useDispatch();
+
+  const { currentPlayingId, playing } = useSelector(state => state.app)
+  const playSongHandler = () => {
+    const trackId = allTracks.findIndex(el => el.track.id === track.id)
+    const reminderTracks = allTracks.slice(trackId)
+    const reminderTracksUris = reminderTracks.map(el => el.track.uri)
+    dispatch(playSong(reminderTracksUris))
+  }
+
+  // isPlaying or no 
+  let orderOrPlaying = <p className={style.order}>{order}</p>;
+  // if (!currentPlayingId)
+  // orderOrPlaying = <p className={style.order}>{order}</p>
+  if (currentPlayingId === track.id && playing)
+    orderOrPlaying = <img className="n5XwsUqagSoVk8oMiw1x" width="14" height="14" alt="" src="	https://open.spotifycdn.com/cdn/images/equaliser-animated-green.f93a2ef4.gif" />
+  if (currentPlayingId === track.id && !playing)
+    orderOrPlaying = <img className="n5XwsUqagSoVk8oMiw1x" width="14" height="14" alt="" src="https://open.spotifycdn.com/cdn/images/equaliser-green.1184ed87.svg"></img>
   return (
-    <div className={style.songRow}>
+    <div className={style.songRow} onClick={playSongHandler}>
       <div className={style.song__data}>
-        <p className={style.order}>{order}</p>
+        {/* {currentPlayingId === track.id ?
+          <img class="n5XwsUqagSoVk8oMiw1x" width="14" height="14" alt="" src="	https://open.spotifycdn.com/cdn/images/equaliser-animated-green.f93a2ef4.gif" />
+          : <p className={style.order}>{order}</p>} */}
+        {orderOrPlaying}
         <img
           className={style.song__cover}
           src={track?.album?.images[0]?.url}

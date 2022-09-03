@@ -45,6 +45,7 @@
 
 .order {
   color: #b3b3b3;
+  min-width: 18px;
 }
 
 .songRow .song__album {

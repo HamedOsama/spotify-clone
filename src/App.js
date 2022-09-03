@@ -49,7 +49,7 @@ function App() {
     // }
     // console.log('I have token');
     // console.log(token)
-  }, [dispatch,])
+  }, [dispatch])
   return (
     <div className="App">
       {!token && <Login />}

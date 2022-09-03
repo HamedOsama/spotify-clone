@@ -34,7 +34,11 @@ function Body({ spotify }) {
       </div>
       <div className={style.songs__container}>
         {currentPlaylist?.tracks?.items?.map((el, i) =>
-          <SongRow key={el.track.id} order={i + 1} track={el.track} />
+          <SongRow
+            key={el.track.id}
+            order={i + 1}
+            allTracks={currentPlaylist.tracks.items}
+            track={el.track} />
         )}
       </div>
     </div>
