@@ -22,7 +22,8 @@ function Footer() {
 
   useEffect(() => {
     dispatch(getMyCurrentPlaying());
-  }, [dispatch, playing, currentPlaying])
+  }, [dispatch, currentPlaying])
+  // }, [dispatch, playing, currentPlaying]) //playing make some side effects like call get currentPlaying more than one in one sec that make some errors in UI
 
   useEffect(() => {
     const event = setTimeout(() => {
