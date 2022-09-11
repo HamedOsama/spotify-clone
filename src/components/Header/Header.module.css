@@ -40,7 +40,6 @@
   padding: 0.25rem 0.45rem;
   border-radius: 3rem;
   cursor: pointer;
-  /* position: relative; */
 }
 
 .header__right .user__name {
@@ -62,8 +61,6 @@
   margin: 0.75rem 0 0;
   position: absolute;
   left: -3.5rem;
-  /* bottom: -0.75rem; */
-  /* top: 0; */
   padding: 0.2rem;
   background-color: #282828;
   border-radius: 0.25rem;
