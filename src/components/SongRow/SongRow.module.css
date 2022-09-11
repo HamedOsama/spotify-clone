@@ -70,3 +70,34 @@
   overflow: hidden;
   white-space: nowrap;
 }
+
+@media (max-width : 726px) {
+  /* .songRow {
+    padding: 0.5rem 0;
+  } */
+
+  .song__data {
+    gap: 0.5rem;
+  }
+
+  .songRow .songRow__info .song__name {
+    font-size: 0.8rem;
+  }
+
+  .song__name,
+  .song__description {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    min-width: 100px;
+    max-width: 105px;
+  }
+
+  .songRow .song__album .song__album__name {
+    display: none;
+  }
+
+  .song__time {
+    font-size: 0.8rem;
+  }
+}

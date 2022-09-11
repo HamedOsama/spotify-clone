@@ -81,3 +81,19 @@
   flex-direction: column;
   /* gap: 1rem; */
 }
+
+
+@media (max-width : 726px) {
+  .songs__container {
+    padding: 0 0.15rem;
+  }
+
+  .body__info .body__infoText h2 {
+    font-size: 1rem;
+  }
+
+  .body__info .body__infoText p {
+    font-size: 0.5rem;
+  }
+
+}

@@ -46,7 +46,7 @@ function SongRow({ order, track, allTracks }) {
       <div className={style.song__album}>
         <p className={style.song__album__name}>{track.album.name}</p>
       </div>
-      <p>{millsToMinutesAndSeconds(track.duration_ms)}</p>
+      <p className={style.song__time}>{millsToMinutesAndSeconds(track.duration_ms)}</p>
     </div>
   )
 }

@@ -103,3 +103,16 @@
   color: #ffffff;
   background-color: hsla(0, 0%, 100%, 0.1);
 }
+
+
+@media (max-width : 726px) {
+  .header__right .settings {
+    min-width: 160px;
+    max-width: 165px;
+    left: -1.5rem;
+  }
+
+  .header__right .settings .menu__btn svg {
+    font-size: 1.25rem;
+  }
+}

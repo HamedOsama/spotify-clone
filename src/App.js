@@ -4,8 +4,8 @@ import spotifyWebApi from 'spotify-web-api-js'
 
 import Login from './components/Login/Login';
 import Main from './components/Main/Main';
-import { getTokenFromUrl } from './spotify/spotify';
-import { appActions } from './features/app-slice/app-slice';
+// import { getTokenFromUrl } from './spotify/spotify';
+// import { appActions } from './features/app-slice/app-slice';
 import { getUser } from './features/app-slice/app-slice';
 const spotify = new spotifyWebApi();
 

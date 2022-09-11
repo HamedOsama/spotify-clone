@@ -44,3 +44,13 @@
   bottom: -0.5rem;
   left: 10%;
 }
+
+@media (max-width : 726px) {
+  .sidebar {
+    min-width: 125px;
+  }
+
+  .sidebar svg {
+    width: 90px;
+  }
+}

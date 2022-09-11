@@ -11,7 +11,7 @@ const initialState = {
   token: window.localStorage.getItem('token') || '',
   item: null,
   currentPlaylist: null,
-  currentPlaylistId: '37i9dQZF1DWZyonhntyFxW',
+  currentPlaylistId: '37i9dQZF1DWZyonhntyFxW', // default playlist shown
   currentPlaying: null,
   currentPlayingId: null,
   volume: 50,
@@ -62,7 +62,7 @@ const appSlice = createSlice({
 
 
 
-
+// change the current playlist and content displayed
 export const changeCurrentPlayListHandler = (playlistID) => {
   return (dispatch, getState) => {
     spotify.getPlaylist(playlistID).then(data => {
@@ -176,6 +176,7 @@ export const getMyCurrentPlaying = () => {
   }
 }
 
+// play or pause current track
 export const playPauseHandler = () => {
   return async (dispatch, getState) => {
     if (!getState().app.currentPlaying)
@@ -192,6 +193,7 @@ export const playPauseHandler = () => {
   }
 }
 
+// increase or decrease the volume
 export const setVolume = (volume) => {
   return (_, getState) => {
     if (!getState().app.currentPlaying)
@@ -202,6 +204,7 @@ export const setVolume = (volume) => {
   }
 }
 
+// play song if there is/are song(s) after it put in queue
 export const playSong = (songID) => {
   return async (dispatch) => {
     await spotify.play({ uris: [...songID] })
