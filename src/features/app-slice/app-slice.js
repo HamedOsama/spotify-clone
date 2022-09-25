@@ -86,8 +86,6 @@ export const setLogoutTime = () => {
 // get user's main data and initialize the app
 export const getUser = () => {
   return (dispatch, getState) => {
-    // set initial playlist that given statically in app if user does not have playlists
-    dispatch(changeCurrentPlayListHandler(getState().app.currentPlaylistId))
     // get token from the local storage or url hash
     const tokenIsFound = getState().app.token;
     const hash = getTokenFromUrl();
@@ -102,6 +100,8 @@ export const getUser = () => {
     }
     // set user's token
     spotify.setAccessToken(token)
+    // set initial playlist that given statically in app if user does not have playlists
+    dispatch(changeCurrentPlayListHandler(getState().app.currentPlaylistId))
     //get user's data
     spotify.getMe().then(user => {
       dispatch(appSlice.actions.setUser(user))
@@ -166,7 +166,7 @@ export const playSong = (songID) => {
     await spotify.play({ uris: [...songID] })
     setTimeout(() => {
       dispatch(getMyCurrentPlaying())
-    }, 900)
+    }, 1500)
   }
 }
 
