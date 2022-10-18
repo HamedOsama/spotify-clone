@@ -2,8 +2,8 @@
 
 ## Description
 
-React Web3 NFT Listing Web Application using ReactJs, ThirdWeb and opensea api and metamask wallet.
-The address as well as the punks are displayed dynamically from Opensea Marketplace.
+A clone of Spotify Web Player using ReactJs, Redux and the Spotify Web API as its backend.
+
 
 
 ## Live Demo 🌐
